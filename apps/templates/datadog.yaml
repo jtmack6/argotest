@@ -19,6 +19,8 @@ spec:
           apiKeyExistingSecret: datadog-secret
           appKeyExistingSecret: datadog-secret
           clusterName: "kuck8s"
+          kubelet:
+            tlsVerify:  false
     repoURL: https://helm.datadoghq.com
     targetRevision: 3.0.1
   syncPolicy:
