@@ -17,7 +17,7 @@ spec:
         datadog:
           apiKeyExistingSecret: datadog-secret
           appKeyExistingSecret: datadog-secret
-    repoURL: https://github.com/DataDog/helm-charts
+    repoURL: https://helm.datadoghq.com
     targetRevision: 3.0.1
   syncPolicy:
     automated:
