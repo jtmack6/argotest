@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datadog
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    chart: datadog
+    helm:
+      values: |
+        datadog:
+          apiKeyExistingSecret: datadog-secret
+          appKeyExistingSecret: datadog-secret
+    repoURL: https://github.com/DataDog/helm-charts
+    targetRevision: 3.0.1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
